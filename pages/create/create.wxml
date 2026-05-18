@@ -1,0 +1,83 @@
+<view class="container">
+  <view class="form-card card">
+    <form bindsubmit="onSubmit">
+      <view class="form-item">
+        <view class="form-label">订单号</view>
+        <input 
+          class="form-input" 
+          value="{{orderId}}" 
+          disabled 
+          placeholder="自动生成" />
+      </view>
+
+      <view class="form-item">
+        <view class="form-label required">客户名称</view>
+        <input 
+          class="form-input {{errors.customer ? 'input-error' : ''}}" 
+          value="{{formData.customer}}"
+          bindinput="onInput"
+          data-field="customer"
+          placeholder="请输入客户名称" />
+        <view class="error-text" wx:if="{{errors.customer}}">{{errors.customer}}</view>
+      </view>
+
+      <view class="form-item">
+        <view class="form-label required">产品名称</view>
+        <input 
+          class="form-input {{errors.product ? 'input-error' : ''}}" 
+          value="{{formData.product}}"
+          bindinput="onInput"
+          data-field="product"
+          placeholder="请输入产品名称" />
+        <view class="error-text" wx:if="{{errors.product}}">{{errors.product}}</view>
+      </view>
+
+      <view class="form-item">
+        <view class="form-label required">数量（件）</view>
+        <input 
+          class="form-input {{errors.quantity ? 'input-error' : ''}}" 
+          type="number"
+          value="{{formData.quantity}}"
+          bindinput="onInput"
+          data-field="quantity"
+          placeholder="请输入数量" />
+        <view class="error-text" wx:if="{{errors.quantity}}">{{errors.quantity}}</view>
+      </view>
+
+      <view class="form-item">
+        <view class="form-label required">交货日期</view>
+        <picker 
+          mode="date" 
+          value="{{formData.deliveryDate}}" 
+          bindchange="onDateChange"
+          start="{{minDate}}">
+          <view class="picker-input {{errors.deliveryDate ? 'input-error' : ''}}">
+            <text>{{formData.deliveryDate || '请选择交货日期'}}</text>
+            <text class="picker-arrow">›</text>
+          </view>
+        </picker>
+        <view class="error-text" wx:if="{{errors.deliveryDate}}">{{errors.deliveryDate}}</view>
+      </view>
+
+      <view class="form-item">
+        <view class="form-label">备注</view>
+        <textarea 
+          class="form-textarea" 
+          value="{{formData.remark}}"
+          bindinput="onInput"
+          data-field="remark"
+          placeholder="请输入备注信息（可选）"
+          maxlength="200" />
+      </view>
+
+      <view class="submit-section">
+        <button 
+          class="btn-submit" 
+          form-type="submit"
+          loading="{{submitting}}">
+          提交订单
+        </button>
+      </view>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="card order-info">
+    <view class="order-header">
+      <text class="order-id">{{order.id}}</text>
+      <text class="status-tag {{statusClass}}">{{order.status}}</text>
+    </view>
+    
+    <view class="info-section">
+      <view class="info-row">
+        <text class="info-label">客户名称</text>
+        <text class="info-value">{{order.customer}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">产品名称</text>
+        <text class="info-value">{{order.product}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">数量</text>
+        <text class="info-value">{{order.quantity}} 件</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">下单日期</text>
+        <text class="info-value">{{order.orderDate}}</text>
+      </view>
+      <view class="info-row">
+        <text class="info-label">交货日期</text>
+        <text class="info-value">{{order.deliveryDate}}</text>
+      </view>
+      <view class="info-row" wx:if="{{order.remark}}">
+        <text class="info-label">备注</text>
+        <text class="info-value remark">{{order.remark}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card timeline-section">
+    <view class="section-title">状态时间线</view>
+    <view class="timeline">
+      <view class="timeline-item" wx:for="{{order.timeline}}" wx:key="index">
+        <view class="timeline-dot"></view>
+        <view class="timeline-content">
+          <view class="timeline-time">{{item.time}}</view>
+          <view class="timeline-status">{{item.status}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="action-section" wx:if="{{showAction}}">
+    <button 
+      class="btn {{actionButton.class}}" 
+      bindtap="handleAction"
+      data-action="{{actionButton.action}}">
+      {{actionButton.text}}
+    </button>
+  </view>
+  
+  <view class="action-section" wx:if="{{!showAction}}">
+    <view class="no-action-tip">此订单已完成全部流程</view>
+  </view>
+</view>

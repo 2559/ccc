@@ -1,0 +1,118 @@
+.filter-tabs {
+  display: flex;
+  background-color: #ffffff;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.filter-tab {
+  flex: 1;
+  text-align: center;
+  padding: 16rpx 0;
+  font-size: 26rpx;
+  color: #666666;
+  position: relative;
+}
+
+.filter-tab.active {
+  color: #1890ff;
+  font-weight: bold;
+}
+
+.filter-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50rpx;
+  height: 4rpx;
+  background-color: #1890ff;
+  border-radius: 2rpx;
+}
+
+.order-list {
+  padding: 20rpx;
+}
+
+.order-card {
+  position: relative;
+  margin-bottom: 20rpx;
+  transition: transform 0.2s;
+}
+
+.order-card:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.order-id {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 6rpx 16rpx;
+  border-radius: 4rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+}
+
+.status-tag.status-waiting {
+  background-color: #fa8c16;
+}
+
+.status-tag.status-producing {
+  background-color: #1890ff;
+}
+
+.status-tag.status-completed {
+  background-color: #52c41a;
+}
+
+.status-tag.status-shipped {
+  background-color: #8c8c8c;
+}
+
+.card-content {
+  padding-right: 40rpx;
+}
+
+.info-item {
+  display: flex;
+  margin-bottom: 12rpx;
+  font-size: 28rpx;
+}
+
+.info-title {
+  color: #666666;
+  flex-shrink: 0;
+}
+
+.info-text {
+  color: #333333;
+  word-break: break-all;
+}
+
+.card-arrow {
+  position: absolute;
+  right: 30rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40rpx;
+  color: #cccccc;
+}

@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/list/list",
+    "pages/create/create",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1890ff",
+    "navigationBarTitleText": "SMT订单跟踪",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1890ff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/list/list",
+        "text": "订单列表",
+        "iconPath": "assets/list.png",
+        "selectedIconPath": "assets/list-active.png"
+      },
+      {
+        "pagePath": "pages/create/create",
+        "text": "新增订单",
+        "iconPath": "assets/add.png",
+        "selectedIconPath": "assets/add-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

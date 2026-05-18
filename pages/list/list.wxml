@@ -1,0 +1,66 @@
+<view class="filter-tabs">
+  <view 
+    class="filter-tab {{currentFilter === '全部' ? 'active' : ''}}" 
+    data-status="全部"
+    bindtap="onFilterChange">全部</view>
+  <view 
+    class="filter-tab {{currentFilter === '待生产' ? 'active' : ''}}" 
+    data-status="待生产"
+    bindtap="onFilterChange">待生产</view>
+  <view 
+    class="filter-tab {{currentFilter === '生产中' ? 'active' : ''}}" 
+    data-status="生产中"
+    bindtap="onFilterChange">生产中</view>
+  <view 
+    class="filter-tab {{currentFilter === '已完成' ? 'active' : ''}}" 
+    data-status="已完成"
+    bindtap="onFilterChange">已完成</view>
+  <view 
+    class="filter-tab {{currentFilter === '已发货' ? 'active' : ''}}" 
+    data-status="已发货"
+    bindtap="onFilterChange">已发货</view>
+</view>
+
+<view class="order-list">
+  <block wx:if="{{filteredOrders.length > 0}}">
+    <view 
+      class="order-card card" 
+      wx:for="{{filteredOrders}}" 
+      wx:key="id"
+      bindtap="goToDetail"
+      data-order-id="{{item.id}}">
+      
+      <view class="card-header">
+        <text class="order-id">{{item.id}}</text>
+        <text class="status-tag {{getStatusClass(item.status)}}">{{item.status}}</text>
+      </view>
+      
+      <view class="card-content">
+        <view class="info-item">
+          <text class="info-title">客户名称：</text>
+          <text class="info-text">{{item.customer}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-title">产品名称：</text>
+          <text class="info-text">{{item.product}}</text>
+        </view>
+        <view class="info-item">
+          <text class="info-title">数量：</text>
+          <text class="info-text">{{item.quantity}} 件</text>
+        </view>
+        <view class="info-item">
+          <text class="info-title">下单日期：</text>
+          <text class="info-text">{{item.orderDate}}</text>
+        </view>
+      </view>
+      
+      <view class="card-arrow">›</view>
+    </view>
+  </block>
+  
+  <block wx:else>
+    <view class="empty-tip">
+      <text>暂无订单数据</text>
+    </view>
+  </block>
+</view>

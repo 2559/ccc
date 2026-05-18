@@ -1,0 +1,8 @@
+# 微信小程序开发工具生成的文件
+.local/
+.vscode/
+.DS_Store
+*.log
+
+# 编译产物
+/dist/
